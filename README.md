@@ -33,6 +33,7 @@ interface PaginationResult {
   url_template: string;
   current_page: number;
   pages: PaginationLink[];
+  next_url?: string;
 }
 
 interface PaginationLink {
@@ -73,7 +74,8 @@ Input: HTML from `https://example.com/articles?page=1`
         "page_number": 4,
         "element": "<a href=\"/articles?page=4\" class=\"pagination-link\">4</a>"
       }
-    ]
+    ],
+    "next_url": "https://example.com/articles?page=2"
   }
 ]
 ```

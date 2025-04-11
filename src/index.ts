@@ -11,6 +11,7 @@ export interface PaginationResult {
   pages: PaginationLink[];
   url_template: string;
   current_page: number;
+  next_url?: string;
 }
 
 export function detectStaticPagination(html: string, currentUrl: string): PaginationResult[] {
@@ -107,6 +108,13 @@ export function detectStaticPagination(html: string, currentUrl: string): Pagina
       current_page,
       pages,
     };
+
+    // Build next_url if it exists
+    const nextCandidateUrl = template.replace('{page}', (current_page + 1).toString());
+    const hasNext = pages.some(p => p.url === nextCandidateUrl);
+    if (hasNext) {
+      result.next_url = nextCandidateUrl;
+    }
 
     // ✅ Filter logic
 

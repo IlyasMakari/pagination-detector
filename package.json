@@ -2,6 +2,7 @@
   "name": "pagination-detector",
   "version": "1.0.0",
   "description": "A lightweight TypeScript library for detecting pagination structure in web pages. Designed for use in scraping tools and agentic workflows.",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,11 +10,24 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["pagination", "scraping", "html", "firecrawl", "agentic", "n8n"],
+  "keywords": [
+    "pagination",
+    "scraping",
+    "html",
+    "firecrawl",
+    "agentic",
+    "n8n"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/node-fetch": "^2.6.12",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^7.0.1"
   }
 }
